@@ -74,46 +74,46 @@ def validarPermiso(endPoint,metodo,idRol):
 
 ##################################################################################
 #### Servico Votacion
-# Rutas Ciudadanos
+# Rutas Resultados
 
-@app.route("/ciudadanos",methods=['GET'])
-def getCiudadanos():
+@app.route("/resultados",methods=['GET'])
+def getResultados():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votacion"] + '/ciudadanos'
+    url = dataConfig["url-backend-votacion"] + '/resultados'
     response = requests.get(url, headers=headers)
     json = response.json()
     return jsonify(json)
 
-@app.route("/ciudadanos",methods=['POST'])
-def crearCiudadano():
+@app.route("/resultados",methods=['POST'])
+def crearResultado():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votacion"] + '/ciudadanos'
+    url = dataConfig["url-backend-votacion"] + '/resultados'
     response = requests.post(url, headers=headers,json=data)
     json = response.json()
     return jsonify(json)
 
-@app.route("/ciudadanos/<string:id>",methods=['GET'])
-def getCiudadano(id):
+@app.route("/resultados/<string:id>",methods=['GET'])
+def getResultado(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votacion"] + '/ciudadanos/'+id
+    url = dataConfig["url-backend-votacion"] + '/resultados/'+id
     response = requests.get(url, headers=headers)
     json = response.json()
     return jsonify(json)
 
-@app.route("/ciudadanos/<string:id>",methods=['PUT'])
-def modificarCiudadano(id):
+@app.route("/resultados/<string:id>",methods=['PUT'])
+def modificarResultado(id):
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votacion"] + '/ciudadanos/'+id
+    url = dataConfig["url-backend-votacion"] + '/resultados/'+id
     response = requests.put(url, headers=headers, json=data)
     json = response.json()
     return jsonify(json)
 
-@app.route("/ciudadanos/<string:id>",methods=['DELETE'])
-def eliminarCiudadano(id):
+@app.route("/resultados/<string:id>",methods=['DELETE'])
+def eliminarResultado(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votacion"] + '/ciudadanos/' + id
+    url = dataConfig["url-backend-votacion"] + '/resultados/' + id
     response = requests.delete(url, headers=headers)
     json = response.json()
     return jsonify(json)

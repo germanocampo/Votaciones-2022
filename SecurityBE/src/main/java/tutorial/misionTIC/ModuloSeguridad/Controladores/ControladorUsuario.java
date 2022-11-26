@@ -32,7 +32,7 @@ public class ControladorUsuario {
     @PostMapping
     public Usuario create(@RequestBody Usuario infoUsuario){ //crea un usuario de tipo jaon llamado infoUsuario en el body
         infoUsuario.setContrasena(convertirSHA256(infoUsuario.getContrasena())); //Encripta la contraseña
-        return this.miRepositorioUsuario.save(infoUsuario); //Guarda el usuario den la base de datos
+        return this.miRepositorioUsuario.save(infoUsuario); //Guarda el usuario en la base de datos
     }
 
     @GetMapping("{id}")
